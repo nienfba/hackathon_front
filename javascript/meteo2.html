@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <meta charset="utf-8">
+    <title>Météo</title>
+
+</head>
+<body>
+  <main>
+    <section>
+        <h3>Météo</h3>
+        <ul class="listeInfo"></ul>
+        <p class="listeInfo"></p>
+    </section>
+  </main>
+  <script>
+// URL API AJAX
+var urlApiAjax = 'http://api.openweathermap.org/data/2.5/forecast?lat=43.3&lon=5.4&units=metric&appid=ee3abf652133c6c47b5daef91a31b166';
+// https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
+fetch(urlApiAjax)
+.then(function(data){
+// ON VEUT RECEVOIR UN OBJET JAVASCRIPT
+    return data.json();
+})
+.then(function(objetJS){
+console.log(objetJS);
+// CA Y'EST J'AI UN OBJET JS AVEC TOUTES INFOS PLANQUEES DEDANS...
+// IL FAUT ALLER RECUPERER LES INFOS QUI NOUS INTERESSENT
+// objet.propriete OU objet["propriete"]
+// BOUCLE POUR PARCOURIR LES INFOS UNE PAR UNE
+  var tableauWeather = objetJS['list'];
+
+  //recup des DATAs
+  var listWeather = {};
+  for(var index=0; index < tableauWeather.length; index++) {
+    var infoWeather = tableauWeather[index];
+    //RECUP DATA DE
+    var dateOb = new Date(infoWeather.dt_txt);
+    var day = dateOb.getDate();
+    var month = dateOb.getMonth();
+    var date = day + "/" + month;
+    var tempMin = infoWeather.main.temp_min;
+    var tempMax = infoWeather.main.temp_max;
+    var humidity = infoWeather.main.humidity;
+    var windSpeed = infoWeather.wind.speed;
+    var windDeg = infoWeather.wind.deg;
+    var icon = infoWeather.weather[0].icon;
+  //DATA PAR JOUR DANS ListWeather
+    if (!(date in listWeather)){
+      listWeather[date] = {icon : [icon], tmin : [tempMin],
+        tmax : [tempMax], windS : [windSpeed], windD : [windDeg], humid : [humidity]};
+    } else {
+        listWeather[date].icon.push(icon);
+        listWeather[date].tmin.push(tempMin);
+        listWeather[date].tmax.push(tempMax);
+        listWeather[date].humid.push(humidity);
+        listWeather[date].windS.push(windSpeed);
+        listWeather[date].windD.push(windDeg);
+      }
+    }
+console.log(listWeather);
+//RECUPERATION DATA POUR L'AFFICHAGE
+  var tempMinScreen = [];
+  var tempMaxScreen = [];
+  var windMaxScreen = [];
+  var windDegScreen = [];
+  var iconScreenDay = [];
+  var humidScreen = [];
+
+  for (var date in listWeather) {
+    var dateWeather = listWeather[date];
+    humidScreen.push(dateWeather.humid);
+    var tempMinS = Math.min(...dateWeather.tmin.map(x => parseFloat(x)));
+    tempMinScreen.push(tempMinS.toFixed(1));
+    var tempMaxS = Math.max(...dateWeather.tmax.map(x => parseFloat(x)));
+    tempMaxScreen.push(tempMaxS.toFixed(1));
+    var windMaxS = Math.max(...dateWeather.windS.map(x => parseFloat(x)));
+    windMaxScreen.push((windMaxS * 3.6).toFixed(1));
+    var windDeg = Math.min(...dateWeather.windD.map(x => parseFloat(x)));
+    windDegScreen.push(windDeg);
+    var iconS = Object.values(dateWeather.icon);
+    iconScreenDay.push(iconS);
+  }
+//recuperation des heures et icon par relever
+  var infoH = {};
+  for(var index=0; index < tableauWeather.length; index++) {
+    var infoHours = tableauWeather[index];
+    var dateHour = new Date(infoHours.dt_txt);
+    var hour = dateHour.getHours();
+    var iconHour = infoHours.weather[0].icon;
+    if (!(dateHour in infoH)){
+      infoH[dateHour] = {hour : [hour], iconH : [iconHour]};
+    } else {
+        infoH[dateHour].hour.push(hour);
+        infoH[dateHour].iconH.iconHour;
+      }
+  }
+  var screenHour = [];
+  for (var dateHour in infoH) {
+    var h = infoH[dateHour];
+    screenHour.push(h.hour);
+    screenHour.push(h.iconH);
+  }
+
+  var dayLet = {0:'dim.',1:'lun.',2:'mar.',3:'mer.',4:'jeu.',5:'ven.',6:'sam.'};
+  var today = new Date();
+  var dayNum = today.getDay();
+  if (dayNum < 4) {
+    for ( var n=0; n <= 3; n++)
+        var dayScreen = (dayLet[dayNum + n])
+  } else
+    { for (var n = 3; n <= 6; n++)
+      var dayScreen = (dayLet[dayNum - n])}
+
+  var baliseUl = document.querySelector("ul.listeInfo");
+  // DOM Document Object Model
+  // AJOUTER UNE BALISE li
+
+  var codeHtmlLi =  '<div id="meteo-head" >'
+                      + '<div class="meteo-index">'
+                        + '<div class="meteo-title">' + 'Marseille' + '</div>'
+                        + '<div class="meteo-title">' + '<p>' + dayLet[dayNum] + ' ' +day  +  '</p>' + '</div>'
+                      + '</div>'
+                      + '<div class="meteo-index">' + '<img class="meteo-icon-day" src="https://openweathermap.org/img/w/'+ iconScreenDay[0][0] + '.png">'+   '<p>' + tempMaxScreen[0] + ' ' + '°C' +  '</p>' +'</div>'
+                      + '<div class="meteo-index">'
+                        + '<div class="meteo-info ">' + '<p>'+ 'vent '+ ' ' + windMaxScreen[0] + ' ' + 'km/h' + '</p>' + '</div>'
+                        + '<div class="meteo-info">' + '<p>' + 'humidité :' + humidity + '%' +  '</p>' + '</div>'
+                      + '</div>'
+                    + '</div>' +
+                       '<div class = "row" >'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ screenHour[1]
+                        + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ screenHour[3] + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ screenHour[5] + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ screenHour[7] + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ screenHour[9] + '.png">' + '</div>'
+                    + '</div>' +
+                      '<div class = "row" >'
+                       + '<div class="col-md-2">' + screenHour[0] + ':' + '00' + '</div>'
+                       + '<div class="col-md-2">' + screenHour[2] + ':' + '00' + '</div>'
+                       + '<div class="col-md-2">' + screenHour[4] + ':' + '00' + '</div>'
+                       + '<div class="col-md-2">' + screenHour[6] + ':' + '00' + '</div>'
+                       + '<div class="col-md-2">' + screenHour[8] + ':' + '00' + '</div>'
+                       + '</div>' +
+                    '<div class = "row" >'
+                      + '<div class="col-md-2">' + dayLet[dayNum] + '</div>'
+                      + '<div class="col-md-2">' + dayLet[(dayNum + 1)] + '</div>'
+                      + '<div class="col-md-2">' + dayLet[(dayNum + 2)] + '</div>'
+                      + '<div class="col-md-2">' + dayLet[(dayNum - 4)] + '</div>'
+                      + '<div class="col-md-2">' + dayLet[(dayNum - 3)] + '</div>'
+                    + '</div>' +
+                      '<div class = "row" >'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ iconScreenDay[0][0]
+                        + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ iconScreenDay[1][3] + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ iconScreenDay[2][3] + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ iconScreenDay[3][3] + '.png">' + '</div>'
+                      + '<div class="col-md-2">' +'<img src="https://openweathermap.org/img/w/'+ iconScreenDay[4][3] + '.png">' + '</div>'
+                    + '</div>' +
+                    '<div class = "row" >'
+                      + '<div class="col-md-2">' + tempMaxScreen[0] + '°' + ' / ' + tempMinScreen[0] + '°' +  '</div>'
+                      + '<div class="col-md-2">' + tempMaxScreen[1] + '°' + ' / ' + tempMinScreen[1] + '°' +  '</div>'
+                      + '<div class="col-md-2">' + tempMaxScreen[2] + '°' + ' / ' + tempMinScreen[2] + '°' + '</div>'
+                      + '<div class="col-md-2">' + tempMaxScreen[3] + '°' + ' / ' + tempMinScreen[3] + '°' + '</div>'
+                      + '<div class="col-md-2">' + tempMaxScreen[4] + '°' + ' / ' + tempMinScreen[4] + '°' + '</div>'
+                    + '</div>' +
+                    '<div class = "row" >'
+                      + '<div class="col-md-2">' + ' vent '+ ' ' + windMaxScreen[0] + ' ' + 'km/h' +  '</div>'
+                      + '<div class="col-md-2">' + ' vent '+ ' ' + windMaxScreen[1] + ' ' + 'km/h' +  '</div>'
+                      + '<div class="col-md-2">' + ' vent '+ ' ' + windMaxScreen[2] + ' ' + 'km/h' +  '</div>'
+                      + '<div class="col-md-2">' + ' vent '+ ' ' + windMaxScreen[3] + ' ' + 'km/h' +  '</div>'
+                      + '<div class="col-md-2">' + ' vent '+ ' ' + windMaxScreen[4] + ' ' + 'km/h' +  '</div>'
+                    + '</div>';
+                    // '<div class = "row" >'
+                    //   + '<div class="col-md-3">' + ' vent : '+ windMinScreen[0] + ' ' + 'km/h' +  '</div>'
+                    //   + '<div class="col-md-3">' + ' vent : '+ windMinScreen[1] + ' ' + 'km/h' +  '</div>'
+                    //   + '<div class="col-md-3">' + ' vent : '+ windMinScreen[2] + ' ' + 'km/h' +  '</div>'
+                    //   + '<div class="col-md-3">' + ' vent : '+ windMinScreen[3] + ' ' + 'km/h' +  '</div>'
+                    // + '</div>';
+
+// AJOUTER NOTRE CODE POUR LA BALISE li DANS LA BALISE ul
+  baliseUl.innerHTML += codeHtmlLi;
+
+})
+      </script>
+
+</body>
+</html>

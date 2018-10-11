@@ -1,0 +1,46 @@
+.meteo-flex-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 35px;
+}
+
+.meteo-flex-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: black;
+  font-size: 20px;
+  height: auto;
+  width: auto;
+}
+
+.meteo-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: grey;
+  font-size: 15px;
+}
+
+.meteo-icon-day {
+  height: 100px;
+  width: 100px;
+}
+
+.padding-top {
+   padding-top: 20px;
+}
+
+.padding-botom {
+  padding-bottom: : 20px;
+}
+
+.padding-side {
+   padding-left: 20px;
+   padding-right: 20px;
+}
+

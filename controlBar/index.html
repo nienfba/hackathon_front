@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <title>NavBar</title>
+  <!-- FONT AWESOME CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Leaflet CDN -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <!-- Jquery UI CDN -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+  <!-- Bootrap 4 CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="master.css">
+</head>
+
+<body>
+  <!-- Le conteneur de notre carte (avec une contrainte CSS pour la taille -->
+<div id="macarte" style="width:100%; height:100vh;"></div>
+
+<!--<div id="navBottom" class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 mt-2">
+      <form>
+        <div class="form-row align-items-center w-80">
+          <label class="sr-only" for="inlineFormInputGroup">hashtag</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text borderRoundL p-1">#</div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="hashtag">
+            <div class="input-group-prepend">
+              <div class="input-group-text borderRoundR">OK</div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="col-md-2 mt-2">
+
+      <button type="button" class="btn btn-danger mr-2 question" style="border-radius:100px" data-container="body" data-toggle="popover" data-placement="top">
+            <i class="fa fa-question"></i>
+        </button>
+      <button type="button" class="btn btn-primary mr-2 myPosition" style="border-radius:100px">
+            <i class="fa fa-crosshairs"></i>
+        </button>
+    </div>
+    <div class="col-md-6 mt-2">
+      <div class="row float-right">
+        <div class="marker-menu" >
+        	<img class="draggable-marker" src="./images/marker-icon.png" alt="marker" />
+        </div>
+        <button type="button" id="showRight" class="btn btn-info mr-2" style="border-radius:100px">
+                  <i class="fa fa-compass"></i>
+              </button>
+        <button type="button" class="btn btn-secondary mr-2" style="border-radius:100px">
+                  <i class="fa fa-camera-retro"></i>
+              </button>
+        <button type="button" id="showOverlay" class="btn btn-success mr-2" style="border-radius:100px">
+                  <i class="fa fa-heart"></i>
+              </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="navBotMob" class="container-fluid ">
+  <div class="row text-center categoryHide">
+    <div class="col-6">
+      <div class="mt-2">
+        <i></i> <a><p>Musique</p></a>
+      </div>
+      <div class="mt-2">
+        <i></i> <a><p>Divertissement</p></a>
+      </div>
+      <div class="mt-2">
+        <i></i> <a><p>Shopping</p></a>
+      </div>
+      <div class="mt-2">
+        <i></i> <a><p>Restauration</p></a>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="mt-2">
+        <i></i> <a><p>Promenade</p></a>
+      </div>
+      <div class="mt-2">
+        <i></i> <a><p>Logement</p></a>
+      </div>
+      <div class="mt-2">
+        <i></i> <a><p>Sport</p></a>
+      </div>
+      <div class="mt-2">
+        <i></i> <a><p>Culture</p></a>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-4 mt-2">
+      <form>
+        <div class="form-row align-items-center w-80">
+          <label class="sr-only" for="inlineFormInputGroup">hashtag</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text borderRoundL p-1">#</div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="hashtag">
+            <div class="input-group-prepend">
+              <div class="input-group-text borderRoundR">OK</div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-4 mt-2 d-inline-block align-center btnMid p-0">
+      <button type="button" class="btn btn-danger border-circle question" data-container="body" data-toggle="popover" data-placement="top">
+            <i class="fa fa-question"></i>
+        </button>
+      <button type="button" class="btn btn-primary border-circle " >
+            <i class="fa fa-crosshairs"></i>
+        </button>
+    </div>
+
+    <div class="col-4 mt-2">
+      <button type="button" name="filtre" class="btn filtreBy float-right">Filtrer par</button>
+      <div class="" style="display:none;">
+        <button type="button" id="showRight" class="btn btn-info mr-2" style="border-radius:100px">
+            <i class="fa fa-compass"></i>
+        </button>
+        <button type="button" class="btn btn-secondary mr-2" style="border-radius:100px">
+            <i class="fa fa-camera-retro"></i>
+        </button>
+        <button type="button" id="showOverlay" class="btn btn-success mr-2" style="border-radius:100px">
+            <i class="fa fa-heart"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+--><!-- Script CDN -->
+  <!-- Leaflet Script CDN -->
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <!-- Jquery Script CDN -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Popper Script CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- Bootstrap 4 Script CDN -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Jquery UI Script CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+  <script type="text/javascript" src="../javascript/mapControl.js"></script>
+</body>
+
+</html>

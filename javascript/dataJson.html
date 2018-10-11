@@ -1,0 +1,55 @@
+<head>
+        <meta charset="utf-8">
+        <title>TEST AJAX</title>
+    </head>
+    <body>
+        <main>
+            <section>
+                <h3>LISTE DES INFOS</h3>
+                <ul class="listeInfo">
+                    // ICI ON VA CREER UNE BALISE li PAR INFO RECUPERE
+                </ul>
+            </section>
+        </main>
+        <script>
+// URL API AJAX
+var urlApiAjax = 'https://myprovence.code4marseille.fr/api/infos';
+// https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
+fetch(urlApiAjax)
+.then(function(data){
+    // DEBUG
+    console.log(data);
+    // ON VEUT RECEVOIR UN OBJET JAVASCRIPT
+    return data.json();
+})
+.then(function(objetJS){
+    console.log(objetJS);
+    // CA Y'EST J'AI UN OBJET JS AVEC TOUTES INFOS PLANQUEES DEDANS...
+    // IL FAUT ALLER RECUPERER LES INFOS QUI NOUS INTERESSENT
+    var tableauInfo = objetJS["hydra:member"];
+    // objet.propriete OU objet["propriete"]
+    // BOUCLE POUR PARCOURIR LES INFOS UNE PAR UNE
+    for(var index=0; index < tableauInfo.length; index++) {
+        var infoCourante = tableauInfo[index];
+        console.log(infoCourante);
+        var title = infoCourante.title;
+        var latitude = infoCourante.latitude;
+        var longitude = infoCourante.longitude;
+        var description = infoCourante.description;
+        var publicationDate = infoCourante.publicationDate;
+        var media = infoCourante.media;
+
+        var baliseUl = document.querySelector("ul.listeInfo");
+        // DOM Document Object Model
+        // AJOUTER UNE BALISE li
+        var codeHtmlLi =      '<li>'
+                                + '<h4>' + title + '</h4>'
+                            + '</li>';
+        // AJOUTER NOTRE CODE POUR LA BALISE li DANS LA BALISE ul
+        baliseUl.innerHTML += codeHtmlLi;
+    }
+
+})
+        </script>
+
+</body>

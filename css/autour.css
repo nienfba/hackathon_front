@@ -1,0 +1,11 @@
+.autour #map {
+    height:60vh;
+}
+.autour .listeInfo {
+    overflow-y:scroll;
+    height:60vh;
+}
+
+.autour footer {
+    padding:5vw;
+}

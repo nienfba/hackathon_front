@@ -1,0 +1,621 @@
+/* Pour tout le document */
+
+* {
+  box-sizing: border-box;
+
+}
+
+/* Logo et nav bar de la home */
+
+.logo {
+  height: 40px;
+  margin-left: 2rem;
+  margin-top: 26px;
+  padding: 0;
+  position: relative;
+}
+
+
+/* Position du body dans l'ensemble du document */
+
+html,
+body {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 100vw;
+  min-height: 100vh;
+  font-size: 18px;
+  background-color: #fff;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+#lieux {
+  text-shadow: 1px 2px 3px #000;
+}
+
+/* Header
+
+.header {
+  overflow: hidden;
+  z-index: 12;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+*/
+
+/* Container */
+
+.container {
+  display: block;
+  position: relative;
+  width: 100vw;
+  min-width: 100vw;
+}
+
+/* Affichage de la premiere photo page accueil */
+
+.accueil article {
+  position: relative;
+  /* display: block;  */
+  background-image: url("../media/marseille/mucem.jpg");
+  background-size: cover;
+  background-position: center center;
+  width: 100vw;
+  /* height: calc(100vh - 80px); */
+  min-height: 100vh;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  /* overflow:hidden; */
+  transition: all 1.5s linear;
+}
+
+/* Affichage du titre avec h1 */
+
+#titre {
+  color: #fff !important;
+  text-shadow: 2px 2px 2px black;
+  font-weight: 900 !important;
+  margin-top: 35vh;
+  padding: 15px;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+/* Footer */
+
+
+footer {
+  display: block;
+  /*position:sticky;*/
+  bottom: 0px;
+  left: 0px;
+  font-size: 1em;
+  width: 100vw;
+  color: #333;
+  background-color: #eeeeee;
+  padding: 20px;
+  text-decoration: none;
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+footer p,
+footer a {
+  font-size: 1em;
+  text-decoration: none;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+
+.code4 {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 1);
+  background: #F4F4F4;
+  display: block;
+  position: relative;
+  height: 150px;
+  z-index: 0;
+}
+
+.logocg {
+  margin-top: 15px;
+}
+
+.titrefooter {
+  line-height: 1;
+}
+
+.adresse {
+  font-size: 90%;
+  line-height: 1.2em;
+}
+
+.paddingfooter {
+  padding: 15px;
+  width: 25%;
+  text-align: center;
+}
+
+
+
+h3 {
+  font-size: 2em;
+  color: #fff;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+
+}
+
+h4 {
+  font-size: 2em;
+  color: #343434;
+  font-weight: 700;
+  text-align: center;
+
+}
+
+.align-item {
+  text-align: : justify;
+}
+
+
+
+
+
+
+
+
+section {
+  display: block;
+  background-color: transparent;
+}
+
+
+
+
+
+#infos {
+  display: block;
+  width: 100vw;
+  position: relative;
+  text-align: center;
+  margin: 0;
+}
+
+
+#infos h1 {
+  color: #2b3376;
+  font-size: 2em;
+  font-weight: 800;
+  text-align: center;
+  text-transform: none;
+  margin: 20px;
+}
+
+#lacarte {
+  width: 50vw;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.hashtag {
+  color: #fadf12;
+
+}
+
+h2.hashtag {
+  font-size: 2.8em;
+  text-transform: uppercase;
+  font-weight: 900 !important;
+  text-shadow: 1px 2px rgba(0, 0, 0, 0.8)
+}
+
+.boutonanime {
+  position: relative;
+  padding: 1.4rem 4.2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  font-size: 1.7rem;
+  font-weight: 900 !important;
+  color: #fadf12;
+  /*letter-spacing: 1rem;*/
+  text-transform: uppercase;
+  transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+  user-select: none;
+  word-break: break-word;
+  margin: 1vw;
+}
+
+
+.marge {
+  margin: 10px;
+}
+
+
+
+.liste {
+  text-align: center;
+}
+
+.listeInfo {
+  display: inline-block;
+  position: relative;
+  /*
+  width:15vw;
+  height:15vh;
+  margin: 5px;
+  */
+
+  width: 15vw;
+  height: 15vw;
+
+  min-width: 15vw;
+  min-height: 15vw;
+  margin: 0;
+  padding: 0;
+}
+
+
+.margin-top-footer {
+  margin-top: 10px;
+}
+
+/* MEDIA QUERY IMPORTANT */
+
+@media (max-width: 600px) {
+  .accueil article {
+    display: block;
+    height: auto;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  #intro {
+    display: block;
+    position: relative;
+    height: auto;
+    padding-top: 5vh;
+  }
+
+
+  #titre {
+    margin-top: 10vh;
+  }
+
+  .boutonanime {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 1.5rem;
+  }
+
+
+
+  h1 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 120%;
+  }
+
+  #infos h1 {
+    font-size: 1.5em;
+    display: block;
+    position: relative;
+  }
+
+
+
+
+  #infos {
+    display: block;
+    position: relative;
+    height: auto;
+  }
+
+  #social {
+    display: block;
+    position: relative;
+    height: auto;
+  }
+
+  button,
+  .bouton {
+    display: inline-block;
+    width: auto;
+    padding: 5px;
+    margin: 2px;
+  }
+
+  .listeInfo {
+    display: inline-block;
+    position: relative;
+    /*
+    width:15vw;
+    height:15vh;
+    margin: 5px;
+    */
+
+    width: 15vw;
+    height: 15vw;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  footer {
+    width: 100vw;
+    padding: 0px;
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .margin-top-footer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.border-map {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  width: 100px;
+  background-color: black;
+  z-index: 9999;
+}
+
+.map,
+.mapHome {
+  position: relative;
+}
+
+.btn-scroll {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 40px;
+  top: 26px;
+  z-index: 1000;
+  background: transparent;
+
+}
+
+.scroll {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.margin-bottom {
+  margin-bottom: 50px;
+}
+
+.margin-top {
+  margin-top: 50px;
+}
+
+.miniatures {
+  margin: 20px 25px 20px 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* La page fonctionne très bien sans les codes ci dessous CODE MORT
+
+
+nav{
+  display:block;
+  width:100%;
+}
+
+#intro p {
+  font-size: 0.9em;
+  color: #ffffff;
+  }
+
+
+#intro {
+  display: block;
+  position: relative;
+  text-align:center;
+  padding-top:20vh;
+}
+
+.accueil header {
+  background-color: #ffffff;
+  height: 80px;
+  padding: 10px;
+  margin: 0px;
+  overflow: hidden;
+  width:100%;
+  display:block;
+}
+
+.dropdown-item:hover {
+  display: block;
+  z-index: 110;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.dropdown {
+  opacity: 1;
+  position: relative;
+}
+
+.dropdown-menu {
+  width: 100%;
+  padding: 0px;
+  z-index: 100;
+  background-color: transparent;
+}
+
+.dropdown-item {
+  display: block;
+  color: #fff;
+  background-color: rgb(43, 51, 110);
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 2px;
+  z-index: 110;
+}
+
+.btn-medium {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  min-width: 150px;
+  font-weight:700;
+}
+.btn-medium:hover {
+  color: #fff;
+}
+
+button:hover,
+.dropdown-item:hover {
+  color: #fff;
+  background-color: rgb(43, 51, 110);
+  cursor: pointer;
+}
+
+.btn-treehouse {
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background-color 0.3s ease;
+}
+
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: #fff;
+}
+.boutonanime:before, .boutonanime:after {
+  content: '';
+  position: absolute;
+  transition: inherit;
+  z-index: -1;
+}
+
+.boutonanime:hover {
+  color: #EEEEEB;
+  transition-delay: .6s;
+}
+
+.boutonanime:hover:before {
+  transition-delay: 0s;
+}
+
+.boutonanime:hover:after {
+  background: var(--inv);
+  transition-delay: .4s;
+}
+
+.from-middle:before {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  border: 1px solid var(--inv);
+  border-left: 0;
+  border-right: 0;
+}
+
+.from-middle:after {
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: var(--inv);
+}
+
+.from-middle:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+.from-middle:hover:after {
+  top: 0;
+  height: 100%;
+}
+
+#intro p {
+  font-size: 1em;
+  color: #ffffff;
+  margin-top: 20px;
+  display:block;
+  text-align:center;
+  width:100vw;
+}
+
+#bandeau {
+  width:200vw;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 360px;
+}
+
+#bandeau{
+  display:none;
+  position:relative;
+  bottom:0;
+  height:auto;
+  }
+
+
+  */

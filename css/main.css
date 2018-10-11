@@ -1,0 +1,147 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* menu */
+
+#menu {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 20px;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 10000;
+}
+
+@keyframes grow-bar {
+    0% {
+
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+ /* html, body {
+    width: 100vw;
+    height:100vh;
+    overflow-x: hidden;
+}
+*/
+
+.WallOfPictures {
+    /* padding: 50px 100px; */
+ }
+
+.map {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11,11,11, 0.6);
+    overflow: hidden;
+
+}
+
+#navRight {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    height: calc(100vh - 80px);
+    width: 200px;
+    right: 0;
+    top: 0;
+    background-color: rgba(11,11,11, 0.6);
+    padding-bottom: 50px;
+    overflow: auto;
+}
+
+.second {
+    //display: none;
+    z-index: 10;
+}
+
+.overlay-box {
+
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px;
+    background-color: rgba(11,11,11, 0.6);
+    border: 1px solid #000;
+    color: white;
+    z-index: 12;
+    text-align:center;
+    height: 200px;/*height needs to be set*/
+    width: 550px;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+#navBottom {
+    position: relative;
+    z-index: 10;
+    height: 80px !important;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(11,11,11, 0.6);
+    padding-top: 10px;
+}
+
+#UpPage {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    margin-left: 50px;
+    margin-bottom: 80px;
+    left: 0;
+    bottom: 0;
+    opacity: 0.7;
+}
+
+#imgLike {
+    width: 30px;
+    height: 30px;
+}
+
+#mapHome {
+
+    z-index: 10;
+    width: 100%;
+    height: calc(100vh - 11vh);
+
+}
+
+/* #titre {
+    color: white !important;
+    text-shadow: 2px 2px 2px black;
+}
+
+.header {
+
+    overflow: hidden;
+    z-index: 12;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+*/
+
+.leaflet-marker-photo {
+    height: 60px !important;
+    width: 60px !important;
+    border: 0px !important;
+}
+
+.leaflet-marker-photo div{
+    border-radius: 30px !important;
+}
+
+.filtred {
+    display: none;
+}

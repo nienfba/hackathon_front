@@ -1,0 +1,22 @@
+.img-dec {
+  width: 100vw;
+  height: 70vh;
+  margin-bottom: 40px;
+}
+
+.listePhoto {
+  text-align: center;
+  margin: 0 100px;
+}
+
+.image-decouvrir {
+  display:inline-block;
+  position:relative;
+  align-items: center;
+  /*width:20vw;*/
+  height:40vh;
+  margin: 5px;
+}
+
+
+

@@ -1,0 +1,107 @@
+#navBottom {
+    position: fixed;
+    display: inline-block;
+    z-index: 10;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(11,11,11, 0.6);
+}
+
+#navBottom.col-md-4{
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0; padding: 0;
+  display: inline-block;
+margin-top: 50%;
+}
+
+input {
+  padding-top: 15px;
+  background: rgba(255,255,255,0.10);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border: none!important;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+input[type="text"], textarea {
+outline: none;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2)!important;
+border:1px solid #ccc !important;
+}
+
+button[type="button"] {
+outline: none;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2)!important;
+border:none!important;
+border-radius: 50px;
+}
+
+
+#inlineFormInputGroup{
+
+}
+.input-group-text{
+  background-color: #fff;
+}
+
+/**
+*
+*/
+
+/*--------------------------------------------------------------
+# Media querries NAV BAR MAP
+--------------------------------------------------------------*/
+
+@media (max-width: 430px) {
+    #navBottom {
+        display: none;
+    }
+
+    #navBotMob{
+      position: fixed;
+      display: inline-block;
+      z-index: 1000;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      background-color:rgba(11,11,11, 0.6);
+    }
+    #inlineFormInputGroup{
+      padding:6px 1px 6px 1px;
+      border-radius: 0px 50px 50px 0px!important;
+      -moz-border-radius:0px 50px 50px 0px!important;
+      -webkit-border-radius:0px 50px 50px 0px!important;
+    }
+    .borderRoundR {
+      display: none;
+    }
+    .filtreBy{
+      border-radius: 50px!important;
+      background-color: #fff!important;
+      border-color: rgb(204, 204, 204) !important
+    }
+    .filtreB:hover {
+      border-radius: 50px!important;
+      background-color: red!important;
+      border-color: rgb(204, 204, 204) !important
+    }
+    .btnMid{
+      vertical-align: middle;
+      text-align: center;
+
+    }
+    .btnMid>button {
+width: 36px;
+    }
+    .categoryHide{
+      color: white;
+    }
+    .categoryHide{
+      display: none;
+    }
+}

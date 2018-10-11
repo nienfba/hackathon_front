@@ -1,0 +1,27 @@
+.code4 {
+  border-top:1px solid rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 1);
+  background: #F4F4F4;
+  display: block;
+  position:relative;
+  height: 150px;
+  z-index:0;
+}
+
+.logocg {
+  margin-top: 30px;
+}
+
+.titre {
+  line-height: 1;
+}
+
+.adresse {
+  font-size: 90%;
+  line-height: 1.2em;
+}
+
+.paddingfooter {
+  padding: 15px;
+  width: 25%;
+}

@@ -1,0 +1,65 @@
+Ce document permet de travailler à plusieurs sur un même projet.
+
+
+
+1 -   Lors d'une création de projet UNE seule personne doit créer ce que l'on appelle
+le repository du projet.
+Pour ceci la personne doit aller dans Github sur son profil et cliquer sur "new"
+Elle donne un nom à son projet et doit choisir si le projet est public ou privé ( le privé est payant et coûte environ 7$ par mois )
+
+Suivre ensuite le setup explicatif de Github :)
+
+Ajouter les personnes qui vont participer au projet en allant dans l'onglet settings - collaborators -
+( mettre le pseudo GitHub des participants )
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+2 -   Les participants vont recevoir une invitation par mail de rejoindre le repository
+Il faut ensuite taper cette ligne de commande dans le terminal :
+
+mkdir ~/code/OWNER_GITHUB_USERNAME
+cd ~/code/OWNER_GITHUB_USERNAME
+git clone git@github.com:OWNER_GITHUB_USERNAME/PROJECT_NAME.git
+cd PROJECT_NAME
+
+ATTENTION, il faut copier coller la clef SSH donnée par l'invitation !
+
+
+3 -   Vous voila en COLABORATION :)
+
+4 -   Dans le but de ne pas perdre le travail de chacun il est OBLIGATOIRE de travailler sur une branche afin de ne pas écraser le travail de chacun
+Pour cela le terminal est votre ami :
+
+git branch -b nom-de-votre-branche ( le nom doit être le plus explicatif possible afin de pouvoir comprendre ce qui est a l'intérieur de la branche et ce même 5 mois après par un inconnu )
+
+Pour voir votre travail sur le master il faut pusher votre branche par cette ligne de commande :
+
+git push origin nom-de-votre-branche
+
+5 -   Il faut ensuite créer une pull request sur GitHub afin de savoir si il y a des conflits entre vos travails respectifs sur le repo.
+
+La validation de cette pull request la push automatiquement sur le master.
+
+6 -   Il vous suffit ensuite de faire un git PULL origin master afin de récupérer le master à jour
+
+
+VOUS VOILA FIN PRETS POUR DU BON TRAVAIL DE GROUPE PROPRE !!!!!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

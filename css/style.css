@@ -1,0 +1,15 @@
+*{
+  /* transition: all 1s ease-out; */
+  font-family: Futura, sans-serif;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+
+

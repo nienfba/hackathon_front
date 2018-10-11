@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Les Grimpeurs</title>
+</head>
+<body>
+<h1>Les sites de grimpe</h1>
+<div id="liste">
+</div>
+
+
+<script>
+// url qui appelle l'api en recherchant tout ce qui a le tag "#Grimpe" dans instagram
+var url="https://myprovence.code4marseille.fr/api/instas?tags=grimpe";
+
+
+fetch(url)
+  .then (function(response){
+    return response.json();
+  })
+
+// recuperation des data
+  .then (function(objetJson){
+    var tableauInfo = objetJson["hydra:member"];
+    var chaine='';
+
+    // parcours de tous les instagramme récupérés
+    for (var index = 0; index < tableauInfo.length; index++) {
+            var infoCourante = tableauInfo[index];
+            var caption = infoCourante.caption;
+          console.log(caption);
+
+          // creation de la liste à partir de tous les tags récupérés
+          chaine+="<li> "+caption+"</li>";
+        }
+        // ajout dans le div 'liste' du texte récupéré sur Instagram
+        document.getElementById('liste').innerHTML=chaine;
+  })
+
+</script>
+</body>
+</html>
