@@ -127,7 +127,7 @@ $("#hashtagReset").click(function () {
     // objet.propriete OU objet["propriete"]
     // BOUCLE POUR PARCOURIR LES INFOS UNE PAR UNE
     //console.log(tableauInfo.length-1);
-    for (var index = tableauInfo.length-1; index > tableauInfo.length-13; index--) {
+    for (var index = tableauInfo.length-1; index > tableauInfo.length-11; index--) {
       var infoCourante = tableauInfo[index];
         //onsole.log(infoCourante);
         var link = infoCourante.link;
