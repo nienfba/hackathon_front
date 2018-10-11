@@ -32,15 +32,15 @@ Si ces deux lignes de commandes vous renvoient des informations tout est OK !
 ## Installation du Front
 
 * Installez WAMP ou LAMP sur votre machine. 
-* Dans le répertoire du serveur Web local, créez un répertoire pour le projet front (ex : hackathon_front)
+* En ligne de commande placez vous dans le répertoire web de Wamp ou Mamp (www ou htdocs...). (ex cd c:/wamp/www/)
 * Cloner le dépôt distant avec `$ git clone https://github.com/nienfba/hackathon_front.git`
-* Vous êtes prêt à utilisez le Front, connectez vous à votre dossier à partir de localhost (ex : http://localhost/hackthon_front)
+* Vous êtes prêt à utilisez le Front, connectez vous à votre dossier à partir de localhost (ex : http://localhost/hackathon_front)
 
 # POUR CE MATIN VALIDEZ LE BON FONCTIONNEMENT DE WAMP/MAMP, phpMyadmin, Composer et Git en ligne de commande. 
 
 ## Installation du Back
 
-* Dans le répertoire du serveur Web local, créez un répertoire pour le projet back (ex : hackathon_back)
+* En ligne de commande placez vous dans le répertoire web de Wamp ou Mamp (www ou htdocs...). (ex cd c:/wamp/www/)
 * Cloner le dépôt distant avec `$ git clone https://github.com/nienfba/hackathon_back.git`
 * Maintenant il s'agit d'installer Symfony et ses dépendances, la base de données et d'y injecter le contenu pour celà :
  * `$ composer update` ou `$php composer.phar update`. Cette commande peut prendre plusieurs minutes :(
