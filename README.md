@@ -38,38 +38,43 @@ Si ces deux lignes de commandes vous renvoient des informations tout est OK !
 
 # POUR CE MATIN VALIDEZ LE BON FONCTIONNEMENT DE WAMP/MAMP, phpMyadmin, Composer et Git en ligne de commande. 
 
-## Installation du Back (en cours ! merci de patienter jusqu'à 13h !)
+## Installation du Back
 
 * Dans le répertoire du serveur Web local, créez un répertoire pour le projet back (ex : hackathon_back)
 * Cloner le dépôt distant avec `$ git clone https://github.com/nienfba/hackathon_back.git`
 * Maintenant il s'agit d'installer Symfony et ses dépendances, la base de données et d'y injecter le contenu pour celà :
  * `$ composer update` ou `$php composer.phar update`. Cette commande peut prendre plusieurs minutes :(
  * une fois le framework et ses dépendances mises à jour, modifier le fichier .env à la racine. Trouvez le ligne `$ DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name` 
-Remplacez db_user et db_password par vos valeurs locales. Pour une installation standard de Wamp ou Mamp (ici le mot de passe est vide !!) : 
-`$ DATABASE_URL=mysql://root:@127.0.0.1:3306/db_name`
- * Nous allons maintenant créer la base de données :
+Remplacez db_user et db_password par vos valeurs locales. Pour une installation standard de Wamp ou Mamp (ici le mot de passe est vide et la base s'appelle hackathon !!) : 
+`$ DATABASE_URL=mysql://root:@127.0.0.1:3306/hackthon`
+ * Nous allons maintenant créer la base de données, c'est automatique avec symfony !!:
 `$ php bin/console database:create`
  * Puis créer les tables de la bases :
- `$ php bin/console make:migrations`
+ `$ php bin/console make:migration`
  `$ php bin/console doctrine:migrations:migrate`
+Il faut répondre "y" à la question "WARNING ! ...."
  * Puis nous allons insérer les données dans la base : 
  `$ php bin/console doctrine:fixtures:load`
+Répondre "y" à la question "WARNING ! ...."
 * OUF ! All is done !! Go to Work ;)
 
+Connectez-vous sur http://localhost/hackaton_back/public/api/ pour tester !!
 
-## Travailler sur le front et sur le back
+
+## API : Travailler sur le front et sur le back 
 
 Pour travailler sur le front vous avez accès aux pages, css, js... etc. Ouvrez directement ses fichiers dans votre éditeur de texte favoris (Visual Studio Code, Atom ou Sublim, ou à la votre !). 
-Pour la gestion des données, de la base de données... etc... c'est le back qui vous fourni tout ça à travers une API ! Pour découvrir cette API rendez-vous à l'adresse http://localhors/hackathon_back/api
+Pour la gestion des données, de la base de données... etc... c'est le back qui vous fourni tout ça à travers une API ! Pour découvrir cette API rendez-vous à l'adresse http://localhost/hackaton_back/public/api/
 
-Sauf si votre projet le nécessite, vous n'avez normalement pas à utiliser Symfony et à coder de PHP, tout se passe à travers l'API. A partir du Front vous devez effectuer des requête AJAX en GET ou POST vers l'API. Des données transites alors en JSON pour l'affichage côté Front ou l'enregitrement en base côté back !
+Sauf si votre projet le nécessite, vous n'avez normalement pas à utiliser Symfony et à coder de PHP, tout se passe à travers l'API. A partir du Front vous devez effectuer des requête AJAX en GET ou POST vers l'API. Des données transites alors en JSON pour l'affichage côté Front ou l'enregistrement en base côté back !
 
 ## Travaillez en équipe : utilisez git et github
 
-Commencez par touts vous créer un compte github si ce n'est déjà fait !
+Commencez par tous vous créer un compte github si ce n'est déjà fait !
 
 * Lors d'une création de projet UNE seule personne doit créer ce que l'on appelle
-le repository du projet.
+le repository du projet. DOnc l'un d'entre vous créer ce repository sur son compte github. Les autres seront ensuite collaborateurs.
+
 Pour ceci la personne doit aller dans Github sur son profil et cliquer sur "new"
 Elle donne un nom à son projet et doit choisir si le projet est public ou privé ( le privé est payant et coûte environ 7$ par mois ), donc ici public :)
 
@@ -104,3 +109,6 @@ La validation de cette pull request la push automatiquement sur le master.
 
 
 VOUS VOILA FIN PRÊTS POUR DU BON TRAVAIL DE GROUPE PROPRE !!!!!!!
+
+
+
