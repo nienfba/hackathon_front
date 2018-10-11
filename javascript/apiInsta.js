@@ -138,7 +138,7 @@ function ajaxMap(hashtag = "code4marseille")
                               lat: this.myLat,
                               lng: this.myLng,
                               url: this.src,
-                              caption: "<a href='" + this.myLink + "'>" + this.myDescription + "</a>",
+                              caption: '',
                               thumbnail: this.src,
                               likes: this.myLikes,
                               username: this.myUsername
@@ -160,8 +160,10 @@ function ajaxMap(hashtag = "code4marseille")
 
 ajaxInfos();
 ajaxMap();
+ajaxMap('myprovence');
 
 setInterval(function () {
     ajaxMap(hashtag);
+    ajaxMap('myprovence');
     ajaxInfos();
 }, TIME_UPDATE_INSTA);

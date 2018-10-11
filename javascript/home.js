@@ -118,12 +118,22 @@ $("#hashtagReset").click(function () {
       .then(callbackJson)
     }
   
+
+  
   // URL API AJAX
   var ajouterImage = function (objetJS)
   {
     // CA Y'EST J'AI UN OBJET JS AVEC TOUTES INFOS PLANQUEES DEDANS...
     // IL FAUT ALLER RECUPERER LES INFOS QUI NOUS INTERESSENT
     var tableauInfo = objetJS["hydra:member"];
+    console.log(tableauInfo);
+    //Tri du tableau last POST Insta
+    tableauInfo.sort(function(a,b){
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+      //console.log(new Date(b.createdTime*1000));
+      return new Date(a.createdTime*1000)- new Date(b.createdTime*1000);
+    });
     // objet.propriete OU objet["propriete"]
     // BOUCLE POUR PARCOURIR LES INFOS UNE PAR UNE
     //console.log(tableauInfo.length-1);
@@ -171,3 +181,19 @@ $("#hashtagReset").click(function () {
               bar.classList.add("animWall");
             })
       }
+
+
+//HACK TEMP ANIMATION FIESTA DES SUDS
+
+var fds  = L.marker([43.29989228243306, 5.362647771835327], {
+  icon: L.icon({
+    iconUrl: 'media/icons/fds.png',
+    iconSize: [60, 60],
+    iconAnchor: [40, 40],
+    className: 'leaflet-marker-blink'
+  })
+}).addTo(map);
+
+fds.bindPopup('<h4>Evènement ce soir !</h4><p style="text-align:center"><img src="media/icons/fds.png" /><iframe width="280" height="160" src="https://www.youtube.com/embed/d2Iio5afp3w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p><p><a href="http://www.dock-des-suds.org/fiesta2018/" target="_blank">Découvrir l\'événement >></a>');
+
+

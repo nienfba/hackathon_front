@@ -10,7 +10,7 @@ var filtreQuestion = true;
 var filtreLive = true;
 
 //Création de la map Leaflet
-var map = L.map('mapHome').setView([43.3, 5.4], 13);
+var map = L.map('mapHome').setView([43.3, 5.4], 10);
 
 //Quadrillage de la zone à ne pas franchir
 map.setMaxBounds([[42.7, 3.5],[44, 7]]);

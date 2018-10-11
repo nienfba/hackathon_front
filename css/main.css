@@ -145,3 +145,13 @@
 .filtred {
     display: none;
 }
+
+@keyframes fade { 
+    from { opacity: 0.5; } 
+  }
+  
+.leaflet-marker-blink
+{
+    animation: fade 1s infinite alternate;
+    border-radius : 10px;
+}

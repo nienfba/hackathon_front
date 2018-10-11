@@ -33,7 +33,7 @@
           <img class="logo" src="media/logo/code4marseille.png" alt="logo">
           <section id="intro" class="text-center col-xs-12 ml-auto mr-auto">
             <!-- Background animé avec jquery et hashtag -->
-            <h1 id="titre" class="animated bounce"> Découvrez en direct les merveilles de la Provence</h1>
+            <h1 id="titre" class="animated bounce">Vivez la provence en direct</h1>
             <div id="alternate">
               <h2 id="lieux" class="text-center col-xs-12 ml-auto mr-auto boutonanime "></h2>
             </div>

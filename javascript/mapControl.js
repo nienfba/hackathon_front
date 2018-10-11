@@ -64,9 +64,7 @@ var questionControl = L.Control.extend({
 
             IconQuestion = L.icon({
                 iconUrl: 'media/mapicons/question.png', // the url of the img
-                iconSize: [40, 40],
-                iconAnchor: [20, 40] // the coordinates of the "tip" of the icon ( in this case must be ( icon width/ 2, icon height )
-              });
+            });
 
             var markerQ = new L.marker(center, {
 
