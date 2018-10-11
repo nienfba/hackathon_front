@@ -45,7 +45,7 @@ Si ces deux lignes de commandes vous renvoient des informations tout est OK !
 * Maintenant il s'agit d'installer Symfony et ses dépendances, la base de données et d'y injecter le contenu pour celà :
  * `$ composer update` ou `$php composer.phar update`. Cette commande peut prendre plusieurs minutes :(
  * une fois le framework et ses dépendances mises à jour, modifier le fichier .env à la racine. Trouvez le ligne `$ DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name` 
-Remplacez db_user et db_password par vos valeurs locales. Pour une installation standard de Wamp ou Mamp (ici le mot de passe est vide et la base s'appelle hackathon !!) : 
+Remplacez db_user et db_password et db_name par vos valeurs locales. Pour une installation standard de Wamp ou Mamp (ici le mot de passe est vide et la base s'appelle hackathon !!) : 
 `$ DATABASE_URL=mysql://root:@127.0.0.1:3306/hackthon`
  * Nous allons maintenant créer la base de données, c'est automatique avec symfony !!:
 `$ php bin/console database:create`
@@ -109,6 +109,3 @@ La validation de cette pull request la push automatiquement sur le master.
 
 
 VOUS VOILA FIN PRÊTS POUR DU BON TRAVAIL DE GROUPE PROPRE !!!!!!!
-
-
-
