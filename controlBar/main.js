@@ -66,7 +66,7 @@ jQuery(document).ready(function() {
 
                 // Creating a custom icon
                 IconQuestion = L.icon({
-                  iconUrl: 'images/marker-icon.png', // the url of the img
+                  iconUrl: 'media/mapicons/question.png', // the url of the img
                   iconSize: [20, 40],
                   iconAnchor: [10, 40] // the coordinates of the "tip" of the icon ( in this case must be ( icon width/ 2, icon height )
                 });
