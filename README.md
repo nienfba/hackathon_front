@@ -58,3 +58,64 @@ Récupération du Back dans un dossier back_hackathon
 
 `$ pip install foobar`
 
+## Installation
+
+### Requirements
+* Visual Studio, Sublime Text ou Atom
+* Terminal
+
+
+
+## Usage
+
+```python
+import foobar
+
+foobar.pluralize('word') # returns 'words'
+foobar.pluralize('goose') # returns 'geese'
+foobar.singularize('phenomena') # returns 'phenomenon'
+```
+
+## Development
+```
+$ virtualenv foobar
+$ . foobar/bin/activate
+$ pip install -e .
+```
+
+## Contributing
+
+Comment travailler à plusieurs sur un même projet.
+
+Taper cette ligne de commande dans le terminal :
+
+mkdir ~/code/OWNER_GITHUB_USERNAME
+cd ~/code/OWNER_GITHUB_USERNAME
+git clone git@github.com:OWNER_GITHUB_USERNAME/PROJECT_NAME.git
+cd PROJECT_NAME
+
+ATTENTION, il faut copier coller la clef SSH donnée par l'invitation !
+
+
+Vous voila en COLLABORATION :)
+
+Dans le but de ne pas perdre le travail de chacun il est OBLIGATOIRE de travailler sur une branche afin de ne pas écraser le travail de chacun
+
+Pour cela le terminal est votre ami :
+
+git branch -b nom-de-votre-branche 
+( le nom doit être le plus explicatif possible afin de pouvoir comprendre ce qui est a l'intérieur de la branche et ce même 5 mois après par un inconnu )
+
+Pour voir votre travail sur le master il faut pusher votre branche par cette ligne de commande :
+
+git push origin nom-de-votre-branche
+
+Il faut ensuite créer une pull request sur GitHub afin de savoir si il y a des conflits entre vos travails respectifs sur le repo.
+
+La validation de cette pull request la push automatiquement sur le master.
+
+Il vous suffit ensuite de faire un git PULL origin master afin de récupérer le master à jour
+
+
+VOUS VOILA FIN PRETS POUR DU BON TRAVAIL DE GROUPE.
+
