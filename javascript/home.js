@@ -1,40 +1,53 @@
 /* Autres fonctionnalités de la page d'accueil à commenter et vérifier si encore utiles */
 
 $("#hashtag").click(function () {
+    //clearInterval(reloadInstaMap);
     if ($("#inputHashtag").val().length > 2) {
+      //clearInterval(reloadInstaMap);
       hashtag = $("#inputHashtag").val();
-      ajaxMap(hashtag);
-    } else {
-      hashtag = "code4marseille";
-      ajaxMap(hashtag);
-    }
+      arrayTagInsta = [hashtag];
+      map.removeLayer(photoLayer);
+      initLayerMapInsta();
+      ajaxMap();
+    } /*else {
+      console.log('reload');
+      reloadMap();
+    }*/
   });
 
-  
+
 $("#hashtagReset").click(function () {
-    if ($("#inputHashtag").val().length > 2) {
+
+  console.log('reload');
+  $("#inputHashtag").val('');
+  arrayTagInsta = ['code4marseille','myprovence'];
+  map.removeLayer(photoLayer);
+  initLayerMapInsta();
+  ajaxMap();
+  //reloadMap();
+    /*if ($("#inputHashtag").val().length > 2) {
         hashtag = $("#inputHashtag").val();
         idInsta = [];
-        map.removeLayer(photoLayer);
-        photoLayer = L.photo.cluster({spiderfyDistanceMultiplier: 1.6}).on('click', function (evt) {
+        map.removeLayer(photoLayer);*/
+        /*photoLayer = L.photo.cluster({spiderfyDistanceMultiplier: 1.6}).on('click', function (evt) {
             evt.layer.bindPopup(L.Util.template('<img src="{url}"/><img src="media/icons/logoInsta.png" style="display: inline-block; height: 40px !important; width: 40px !important;"><span><b>Photo de {username}</b></span><span style="float:right;"><img id="imgLike" src="media/icons/instaLike.png"/></span><b style="float: right; line-height:28px;">{likes}</b><p>{caption}</p><br><br>', evt.layer.photo), {
                 className: 'leaflet-popup-photo',
                 minWidth: 400
             });
-        });
-        ajaxMap(hashtag);
-    } else {
+        });*/
+        //ajaxMap(hashtag);
+    /*} else {
         hashtag = "code4marseille";
         idInsta = [];
-        map.removeLayer(photoLayer);
-        photoLayer = L.photo.cluster({spiderfyDistanceMultiplier: 1.6}).on('click', function (evt) {
+        map.removeLayer(photoLayer);*/
+        /*photoLayer = L.photo.cluster({spiderfyDistanceMultiplier: 1.6}).on('click', function (evt) {
             evt.layer.bindPopup(L.Util.template('<img src="{url}"/><img src="media/icons/logoInsta.png" style="display: inline-block; height: 40px !important; width: 40px !important;"><span><b>Photo de {username}</b></span><span style="float:right;"><img id="imgLike" src="media/icons/instaLike.png"/></span><b style="float: right; line-height:28px;">{likes}</b><p>{caption}</p><br><br>', evt.layer.photo), {
                 className: 'leaflet-popup-photo',
                 minWidth: 400
             });
-        });
-        ajaxMap(hashtag);
-    }
+        });*/
+       /* ajaxMap(hashtag);
+    }*/
 });
   
   $("#showOverlay").click(function () {
@@ -127,7 +140,7 @@ $("#hashtagReset").click(function () {
     // CA Y'EST J'AI UN OBJET JS AVEC TOUTES INFOS PLANQUEES DEDANS...
     // IL FAUT ALLER RECUPERER LES INFOS QUI NOUS INTERESSENT
     var tableauInfo = objetJS["hydra:member"];
-    console.log(tableauInfo);
+    //console.log(tableauInfo);
     //Tri du tableau last POST Insta
     tableauInfo.sort(function(a,b){
       // Turn your strings into dates, and then subtract them
@@ -184,8 +197,8 @@ $("#hashtagReset").click(function () {
       }
 
 
-//HACK TEMP ANIMATION FIESTA DES SUDS
-
+//TEMP ANIMATION FIESTA DES SUDS
+/*
 var fds  = L.marker([43.29989228243306, 5.362647771835327], {
   icon: L.icon({
     iconUrl: 'media/icons/fds.png',
@@ -196,5 +209,5 @@ var fds  = L.marker([43.29989228243306, 5.362647771835327], {
 }).addTo(map);
 
 fds.bindPopup('<h4>Evènement ce soir !</h4><p style="text-align:center"><img src="media/icons/fds.png" /><iframe width="280" height="160" src="https://www.youtube.com/embed/d2Iio5afp3w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p><p><a href="http://www.dock-des-suds.org/fiesta2018/" target="_blank">Découvrir l\'événement >></a>');
-
+*/
 

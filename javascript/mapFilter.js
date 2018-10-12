@@ -42,7 +42,7 @@ var questionLayer = L.photo.cluster({spiderfyDistanceMultiplier: 1.6}).on('click
 
 // GESTION POINTS INSTAGRAM
 var photoLayer = L.photo.cluster({spiderfyDistanceMultiplier: 1.6}).on('click', function (evt) {
-    evt.layer.bindPopup(L.Util.template('<img src="{url}"/><img src="media/icons/logoInsta.png" style="display: inline-block; height: 40px !important; width: 40px !important;"><span><b>Photo de {username}</b></span><span style="float:right;"><img id="imgLike" src="media/icons/instaLike.png"/></span><b style="float: right; line-height:28px;">{likes}</b><p>{caption}</p><br><br>', evt.layer.photo), {
+    evt.layer.bindPopup(L.Util.template('<a href="{link}" target="_blank"><img src="{url}"/><img src="media/icons/logoInsta.png" style="display: inline-block; height: 40px !important; width: 40px !important;"></a><span><b>Photo de {username}</b></span><span style="float:right;"><img id="imgLike" src="media/icons/instaLike.png"/></span><b style="float: right; line-height:28px;">{likes}</b><p>{caption}</p><br><br>', evt.layer.photo), {
         className: 'leaflet-popup-photo',
         minWidth: 400
     });
