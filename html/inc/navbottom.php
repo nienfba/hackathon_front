@@ -9,8 +9,7 @@
             <input type="text" class="form-control" id="inputHashtag" placeholder="hashtag">
             <div class="input-group-prepend">
                 <div class="input-group-text borderRoundR heightHashtag">
-                    <img id="hashtag" src="media/icons/add.png" class="iconHashtag" alt="icone" style="position:relative; z-index:20; margin:0px;" />
-                    <img id="hashtagReset" src="media/icons/refresh.png" class="iconHashtag" alt="icone" style="position:relative; z-index:20; margin:0px;" />
+                    <i id="hashtag" class="fa fa-check" style="cursor:pointer;"></i><span>&nbsp;</span><i id="hashtagReset" class="fa fa-refresh" style="cursor:pointer;"></i>
                 </div>
 
             </div>
